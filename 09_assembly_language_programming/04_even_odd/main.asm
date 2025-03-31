@@ -30,14 +30,26 @@ main:
   mov rax, [num] 
   mov rdx, 0
   idiv rbx 
-  ; TO BE CONTINUED
+  cmp rdx, 0
+  je printEvenMessage
 
-  mov rdi, temp 
-  mov rsi, rdx
+printOddMessage:
+  mov rdi, oddMessage 
+  mov rsi, [num]
   push rax  
   call printf
   pop rax  
 
+  jmp exitProgram
+
+printEvenMessage:
+  mov rdi, evenMessage 
+  mov rsi, [num]
+  push rax  
+  call printf
+  pop rax  
+
+exitProgram:
   ; exit
   mov rax, 0
   ret
