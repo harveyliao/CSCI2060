@@ -1,0 +1,3 @@
+Using the files below as a starting point, create a 64-bit assembly language program that implements the following: 
+
+Asks the user to enter an integer, and then searches through an array of integers, sequentially, and outputs a message whether or not that integer was found

@@ -1,0 +1,5 @@
+Using the files below as a starting point, create a 64-bit assembly language program that implements the following: 
+
+Asks the user to enter a string, and then the length of the string (you can assume that the user enters this correctly).  The program will then check if that string is a palindrome, and will output a message accordingly.
+
+Note:  A palindrome is any string that is the same forwards that it is in reverse.  You can find out more about palindromes here:  https://examples.yourdictionary.com/palindrome-examples.html
