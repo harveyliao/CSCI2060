@@ -40,14 +40,30 @@ main:
   pop rax
 
   ; reverse the string
+  ; r8: front address
+  ; r9: back address
+  ; r10b: current front character
+  ; r11b: current back character
+  mov r8, string
+  mov r9, string ;r9 = string + [stringSize] - 1
+  add r9, [stringSize]
+  dec r9
 
 nextChar:
   ; check if we are done 
+  cmp r8, r9 ; if front pointer >= back pointer, done
+  jge printResult
 
   ; swap these two characters
+  mov r10b, [r8]
+  mov r11b, [r9]
+  mov [r9], r10b
+  mov [r8], r11b
 
   ; move to the next characters
-
+  inc r8
+  dec r9
+  jmp nextChar
 
 printResult:
   ; printf("The reverse of the string is %s.\n", string);
