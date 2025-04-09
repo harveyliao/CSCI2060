@@ -1,3 +1,5 @@
+; Q2: Asks the user to enter a string, and then reverses that 
+; string (in place) and outputs the result
 extern printf
 extern scanf
 extern exit
@@ -8,12 +10,34 @@ section .text
 
 main:
   ; printf("Enter a string: ");
+  mov rdi, stringPrompt
+  mov rax, 0
+  push rax
+  call printf
+  pop rax
 
   ; scanf("%s", string);
+  mov rdi, stringFormat
+  mov rsi, string
+  mov rax, 0
+  push rax
+  call scanf
+  pop rax
 
   ; printf("What is the length of the string? ");
+  mov rdi, stringSizePrompt
+  mov rax, 0
+  push rax
+  call printf
+  pop rax
 
   ; scanf("%lli", stringSize);
+  mov rdi, stringSizeFormat
+  mov rsi, stringSize
+  mov rax, 0
+  push rax
+  call scanf
+  pop rax
 
   ; reverse the string
 
@@ -27,6 +51,13 @@ nextChar:
 
 printResult:
   ; printf("The reverse of the string is %s.\n", string);
+  mov rdi, responseFormat
+  mov rsi, string
+  mov rax, 0
+  push rax
+  call printf
+  pop rax
+
 
 endProgram:
   ; exit
