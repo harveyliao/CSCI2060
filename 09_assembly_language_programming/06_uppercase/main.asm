@@ -6,12 +6,14 @@ global main
 section .text
 
 main:
+  ; print the message prompt
   mov rdi, messagePrompt
   mov rax, 0
   push rax 
   call printf 
   pop rax 
 
+  ; read the message from the user
   mov rdi, messageFormat
   mov rsi, message
   mov rax, 0
@@ -19,7 +21,7 @@ main:
   call scanf 
   pop rax 
 
-  ;; convert message to uppercase
+  ; convert message to uppercase
 
   mov rsi, message 
 
