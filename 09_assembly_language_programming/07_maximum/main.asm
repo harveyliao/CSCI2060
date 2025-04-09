@@ -23,11 +23,12 @@ nextNumber:
   jge printResult
 
   ; load the next number into a register
-  mov r11, [numbers + r9 * 8]
+  mov r11, [numbers + r9 * 8]  ; *8 because we used qword for numbers
+                               ; similar to pointer arithmetic
 
   ; check if the current number is > than the maximum
-  cmp r11, r8 
-  jle notLarger
+  cmp r11, r8    ; currentValue > maxValue
+  jle notLarger  ; if currentValue <= maxValue, skip the update
 
   ; update the maximum value
   mov r8, r11 
@@ -53,7 +54,7 @@ exitProgram:
   ret
 
 section .rodata
-  numbers dq 311, -31, 77, 50, -19, -1, 2, 0, -9, 13, -41, 53, 90, -102, 13, 11, -8, -19, 1, 23
+  numbers dq 311, -31, 77, 50, -19, -1, 2, 0, -9, 13, -41, 53, 90, -102, 13, 11, -8, -19, 1, 123
   numberCount dq 20
 
   result db "The maximum element of the array is %lli.", 0ah, 0dh, 0
