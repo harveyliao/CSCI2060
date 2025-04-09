@@ -30,8 +30,8 @@ main:
   mov rax, [num] 
   mov rdx, 0
   idiv rbx 
-  cmp rdx, 0
-  je printEvenMessage
+  cmp rdx, 0  ; compare remainder to 0
+  je printEvenMessage  ; conditional jump to printEvenMessage if remainder is 0
 
 printOddMessage:
   mov rdi, oddMessage 
@@ -40,7 +40,7 @@ printOddMessage:
   call printf
   pop rax  
 
-  jmp exitProgram
+  jmp exitProgram ; unconditional jump to exitProgram
 
 printEvenMessage:
   mov rdi, evenMessage 
