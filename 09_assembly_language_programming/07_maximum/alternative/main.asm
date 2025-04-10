@@ -53,7 +53,7 @@ exitProgram:
   ret
 
 section .rodata
-  numbers dq 331, -31, 77, 50, -19, -1, 2, 0, -9, 13, -41, 53, 90, -102, 13, 11, -8, -19, 1, 123
+  numbers dq 311, -31, 77, 50, -19, -1, 2, 0, -9, 13, -41, 53, 90, -102, 13, 11, -8, -19, 1, 123
   numberCount dq 20
 
   result db "The maximum element of the array is %lli.", 0ah, 0dh, 0
