@@ -22,24 +22,23 @@ main:
   pop rbx
 
   ; search the list
-  mov r12, list
-  mov r13, [listSize]
-  mov rbx, [toFind]
-  mov r14, [toFind]
+  mov r12, list        ; r12 = address of list
+  mov r13, [listSize]  ; r13 = size of list (counter)
+  mov r14, [toFind]    ; r14 = number to find
 
 nextNumber:
   ; get the next array element
-  mov r15, [r12]
+  mov r15, [r12]       ; r15 = current element
 
   ; compare this array element to our number
-  cmp r15, r14
-  je numberFound
+  cmp r15, r14         ; compare current element to number to find
+  je numberFound       ; if equal, jump to numberFound
 
   ; go to the next array element
-  add r12, 8
-  dec r13
-  cmp r13, 0
-  jne nextNumber
+  add r12, 8           ; move to the next element
+  dec r13              ; decrement the counter
+  cmp r13, 0           ; check if we reached the end
+  jne nextNumber       ; if not at end, jump to nextNumber
 
 numberNotFound:
   ; printf("The number %lli was not found in the list.\n", toFind);

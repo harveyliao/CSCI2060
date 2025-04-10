@@ -38,26 +38,26 @@ main:
   pop rbx
 
   ; reverse the string
-  mov r14, string 
-  mov r15, string 
-  add r15, [stringSize]
-  dec r15
+  mov r14, string       ; r14 = front pointer
+  mov r15, string       ; r15 = end pointer
+  add r15, [stringSize] ; move to end of string
+  dec r15               ; adjust to point to last character
 
 nextChar:
   ; check if we are done 
-  cmp r14, r15 
-  jge printResult 
+  cmp r14, r15         ; two pointers have met or crossed
+  jge printResult      ; if so, we are done
 
   ; swap these two characters
-  mov al, [r14]
-  mov bl, [r15]
-  mov [r14], bl 
+  mov al, [r14]         ; get char at start
+  mov bl, [r15]         ; get char at end
+  mov [r14], bl         ; swap them
   mov [r15], al
 
   ; move to the next characters
-  dec r15 
-  inc r14 
-  jmp nextChar
+  dec r15               ; move end pointer backward
+  inc r14               ; move start pointer forward
+  jmp nextChar          ; continue loop
 
 
 printResult:
