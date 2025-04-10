@@ -15,9 +15,9 @@ to run the program:
 `run`
 
 to continue the program:
-`continue`
+`continue` or `c`
 
 to see the registers:
-`info registers`
+`info reg`
 
 
