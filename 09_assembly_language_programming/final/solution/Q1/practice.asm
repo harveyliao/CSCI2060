@@ -1,0 +1,77 @@
+extern printf
+extern scanf
+
+global main
+
+section .text
+
+main:
+  ; printf("Enter a number: ");
+  mov rdi, toFindPrompt
+  mov rax, 0
+  push rbx
+  call printf
+  pop rbx
+
+  ; scanf("%lli", &toFind);
+  mov rdi, toFindFormat
+  mov rsi, toFind
+  mov rax, 0
+  push rbx
+  call scanf
+  pop rbx
+
+  ; search the list
+  mov r12, list
+  mov r13, [listSize]
+  mov rbx, [toFind]
+  mov r14, [toFind]
+
+nextNumber:
+  ; get the next array element
+  mov r15, [r12]
+
+  ; compare this array element to our number
+  cmp r15, r14
+  je numberFound
+
+  ; go to the next array element
+  add r12, 8
+  dec r13
+  cmp r13, 0
+  jne nextNumber
+
+numberNotFound:
+  ; printf("The number %lli was not found in the list.\n", toFind);
+  mov rdi, responseFailed
+  mov rsi, [toFind]
+  mov rax, 0
+  push rbx
+  call printf
+  pop rbx
+  jmp endProgram
+
+numberFound:
+  ; printf("The number %lli was found in the list.\n", toFind);
+  mov rdi, responseSuccess
+  mov rsi, [toFind]
+  mov rax, 0
+  push rbx
+  call printf
+  pop rbx
+
+endProgram:
+  ; exit
+  mov rax, 0
+  ret
+
+section .data
+  toFindPrompt db "Enter a number: ", 0
+  toFindFormat db "%lli", 0
+  toFind dq 0
+
+  list dq -4, 7, 6, 11, -1, 0, 3, 9, 16, -3
+  listSize dq 10
+
+  responseSuccess db "The number %lli was found in the list.", 0ah, 0dh, 0
+  responseFailed db "The number %lli was not found in the list.", 0ah, 0dh, 0
