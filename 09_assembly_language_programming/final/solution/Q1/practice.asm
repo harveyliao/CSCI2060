@@ -35,7 +35,7 @@ nextNumber:
   je numberFound       ; if equal, jump to numberFound
 
   ; go to the next array element
-  add r12, 8           ; move to the next element
+  add r12, 8           ; move to the next element (quad word, so 8 bytes)
   dec r13              ; decrement the counter
   cmp r13, 0           ; check if we reached the end
   jne nextNumber       ; if not at end, jump to nextNumber
@@ -69,7 +69,7 @@ section .data
   toFindFormat db "%lli", 0
   toFind dq 0
 
-  list dq -4, 7, 6, 11, -1, 0, 3, 9, 16, -3
+  list dq -4, 7, 6, 11, -1, 0, 3, 9, 16, -3 ; list of quad words
   listSize dq 10
 
   responseSuccess db "The number %lli was found in the list.", 0ah, 0dh, 0
