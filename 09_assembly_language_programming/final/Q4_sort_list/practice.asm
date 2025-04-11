@@ -32,6 +32,7 @@ inner_loop:
     mov rbx, [list + r9*8 + 8]  ; list[j+1]
     cmp rax, rbx
     jle no_swap                 ; if list[j] <= list[j+1], no swap needed
+    ; jge no_swap ; descending order
 
     ; Swap elements
     mov [list + r9*8], rbx      ; list[j] = list[j+1]
