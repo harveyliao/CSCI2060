@@ -1,3 +1,5 @@
+; Asks the user to enter a string, and then the length of the string (you can assume that the user enters this correctly).  The program will then check if that string is a palindrome, and will output a message accordingly.
+
 extern printf
 extern scanf
 extern exit

@@ -1,3 +1,4 @@
+; Asks the user to enter a string, and then reverses that string (in place) and outputs the result
 extern printf
 extern scanf
 extern exit

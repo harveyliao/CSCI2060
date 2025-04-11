@@ -1,3 +1,4 @@
+; Asks the user to enter an integer, and then searches through an array of integers, sequentially, and outputs a message whether or not that integer was found
 extern printf
 extern scanf
 
