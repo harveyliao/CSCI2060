@@ -8,13 +8,13 @@ LDFLAGS = -m64 -no-pie -z noexecstack
 # LDFLAGS = -m64 -no-pie
 
 # Define the source files
-SRCS = main.asm
+SRCS = fe_assembly.asm
 
 # Derive object files from source files
 OBJS = $(SRCS:.asm=.o)
 
 # Define the executable name
-EXE = main.out
+EXE = fe_assembly.out
 
 # Phony targets
 .PHONY: all clean run
